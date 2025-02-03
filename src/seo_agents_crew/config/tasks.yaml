@@ -1,0 +1,29 @@
+research_task:
+  description: >
+    Conduct a thorough research and analysis about {topic} for Medium blog posts {topic} rankings
+    taking care to find information on blog post titles, SEO titles, keyword analysis, and any 
+    other relvant information for {topic} given the current year is 2025.
+  expected_output: >
+    A complete {topic} analysis of the latest {topic} optimizations and considerations for Medium blog posts
+  agent: researcher
+
+scraper_task:
+  description: >
+    Review the context you got. 
+    Then scrape https://medium.com/@StevieLKim and follow the links to each blog post listed and 
+    for each blog post do a {topic} analysis to increase the {topic} rankings for each blog post.
+    Make sure you inspect the html for improvements to make for {topic}.
+  expected_output: >
+    A list of {topic} updates for each blog post.
+  agent: researcher
+
+reporting_task:
+  description: >
+    Review the context you got and rewrite each blog post using best practices that increase
+    {topic} ratings.
+    Only alter the blog post to boost {topic} while keeping the core content intact. Examples of elements you might
+    need to change are: headers (if there are more than one h1 header in the document for example), blog post header length,  
+    SEO titles, metadata description, etc.
+  expected_output: >
+    {topic} optimized blog posts
+  agent: reporting_analyst

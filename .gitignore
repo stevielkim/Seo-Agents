@@ -1,0 +1,6 @@
+.env
+__pycache__/
+archived_reports/
+knowledge/
+db/
+.venv/
