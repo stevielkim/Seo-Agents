@@ -1,29 +1,33 @@
 research_task:
   description: >
-    Conduct a thorough research and analysis about {topic} for Medium blog posts {topic} rankings
-    taking care to find information on blog post titles, SEO titles, keyword analysis, and any 
-    other relvant information for {topic} given the current year is 2025.
+    Use any tools at your disposal to research and analyze all relevant information for {topic} in 
+    order to improve blog post rankings for blog posts published on Medium given the current year is 2025.
+    Some examples of topics to research and analyze are: changes to make due to Google's AI overview, keyword content, 
+    tone and quality.
   expected_output: >
-    A complete {topic} analysis of the latest {topic} optimizations and considerations for Medium blog posts
+    A complete {topic} report of the latest {topic} to improve rankings.
   agent: researcher
 
 scraper_task:
   description: >
-    Review the context you got. 
-    Then scrape https://medium.com/@StevieLKim and follow the links to each blog post listed and 
-    for each blog post do a {topic} analysis to increase the {topic} rankings for each blog post.
+    Scrape https://medium.com/@StevieLKim and follow the links to each blog post listed and 
+    for each blog post perform a {topic} analysis to increase the {topic} rankings for each blog post.
     Make sure you inspect the html for improvements to make for {topic}.
+    Some examples of html tags you should inspect are: headers, titles, canonical, schema markup, image alt attribute,
+    viewport meta, and keyword meta tags.
   expected_output: >
-    A list of {topic} updates for each blog post.
+    A list of {topic} updates for each blog post linked to from https://medium.com/@StevieLKim 
   agent: researcher
 
 reporting_task:
   description: >
-    Review the context you got and rewrite each blog post using best practices that increase
-    {topic} ratings.
-    Only alter the blog post to boost {topic} while keeping the core content intact. Examples of elements you might
-    need to change are: headers (if there are more than one h1 header in the document for example), blog post header length,  
-    SEO titles, metadata description, etc.
+    Review the context you got and rewrite each blog post that was analyzed in the scraper_task 
+    by the researcher agent.
+    Examples of elements you might need to change are: headers (if there are more than one h1 header in the document for example),
+    blog post header length, SEO titles, metadata description, etc.
+    Offer more than one option for content changes such as a new title or different phrasing of a paragraph with keywords.
+    Don't simply write down the best practices found in the research, you need to create 
+    new suggestions for titles, headers, and content to improve {topic} ratings.
   expected_output: >
     {topic} optimized blog posts
   agent: reporting_analyst
