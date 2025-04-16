@@ -1,6 +1,3 @@
-The SEO report for 2025 has been compiled and saved as `SEO_Report_2025.md` in the "seo" folder. The report details the latest SEO strategies and trends, focusing on Google's AI changes, keyword optimization, and content tone and quality improvements. Here is the complete content of the report:
-
-```markdown
 # SEO Report 2025: Optimizing for Google's Algorithm Changes
 
 ## Introduction
@@ -35,7 +32,4 @@ As we enter 2025, SEO practices evolve under the influence of significant advanc
 
 ## Conclusion
 
-To thrive in 2025’s SEO landscape, adapt content strategies to leverage AI advancements by creating informative, quality content focused on user need. Approaches should emphasize understanding search intent, using interactive tools and comprehensive keyword analysis to improve blog rankings on platforms like Medium.
-```
-
-This report provides a comprehensive overview of the necessary SEO adaptations for 2025, ensuring improved rankings and engagement for blog posts on Medium.
+To thrive in 2025's SEO landscape, adapt content strategies to leverage AI advancements by creating informative, quality content focused on user need. Approaches should emphasize understanding search intent, using interactive tools and comprehensive keyword analysis to improve blog rankings on platforms like Medium.

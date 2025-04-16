@@ -4,3 +4,7 @@ archived_reports/
 knowledge/
 db/
 .venv/
+/src/seo_agents_crew/tools/
+/src/seo_agents_crew/logs/
+/src/seo_agents_crew/tests/
+.*

@@ -3,31 +3,65 @@ research_task:
     Use any tools at your disposal to research and analyze all relevant information for {topic} in 
     order to improve blog post rankings for blog posts published on Medium given the current year is 2025.
     Some examples of topics to research and analyze are: changes to make due to Google's AI overview, keyword content, 
-    tone and quality.
+    tone and quality, highly optimized high quality titles, not having multiple headers, etc.
   expected_output: >
-    A complete {topic} report of the latest {topic} to improve rankings.
+    A single complete {topic} markdown formatted report of the latest {topic} to improve rankings saved in the "seo" folder.
   agent: researcher
 
 scraper_task:
   description: >
-    Scrape https://medium.com/@StevieLKim and follow the links to each blog post listed and 
-    for each blog post perform a {topic} analysis to increase the {topic} rankings for each blog post.
-    Make sure you inspect the html for improvements to make for {topic}.
-    Some examples of html tags you should inspect are: headers, titles, canonical, schema markup, image alt attribute,
-    viewport meta, and keyword meta tags.
+    Scrape 3 blog posts on https://medium.com/@StevieLKim that are written by Stevie Kim and
+    click each article with the html id of post-preview and scrape the HTML content of each blog post
+    and save that content to an html file per blog post.
   expected_output: >
-    A list of {topic} updates for each blog post linked to from https://medium.com/@StevieLKim 
-  agent: researcher
+    For each blog post written by Stevie Kim create an .html file in html format
+    containing the complete blog post content and save it in the "seo" folder.
+  agent: scraper
 
-reporting_task:
+
+evaluation_task:
   description: >
-    Review the context you got and rewrite each blog post that was analyzed in the scraper_task 
-    by the researcher agent.
+    Review the context you got and make sure you fully understand the blog posts content before preceding.
+    Use the report "SEO_Report_2025.md" from the research_task located in "seo" folder to 
+    analyze the blog posts from the scraper_task located in the "seo" folder to improve the blog post rankings.
+    Now write updates to each blog post to improve the blog post {topic} rankings.
     Examples of elements you might need to change are: headers (if there are more than one h1 header in the document for example),
     blog post header length, SEO titles, metadata description, etc.
-    Offer more than one option for content changes such as a new title or different phrasing of a paragraph with keywords.
+    Offer at least 3 options for content changes such as a new title or different phrasing of a paragraph with keywords.
     Don't simply write down the best practices found in the research, you need to create 
-    new suggestions for titles, headers, and content to improve {topic} ratings.
+    new content for titles, headers, and other {topic} to improve {topic} blog post ratings.
   expected_output: >
-    {topic} optimized blog posts
+    For each blog post evaluated for {topic} improvements, create a markdown file with the same name as the original blog post
+    with suggestions for improving the blog post's {topic} rankings and prepend each new file with "suggestions_"
+    and save each file to "seo" folder.
+  agent: researcher
+  context: [scraper_task, research_task]
+
+
+decision_task:
+  description: >
+    Review the context you got from the evaluation_task
+    and analyze the {topic} suggestions from the evaluation_task context
+    and decide which option for "Title", "Header", etc the evaluation_task provided is the best for {topic} blog post rankings.
+    For each post you should select the highest quality {topic} optimizations
+    and every post should only include one "Title", "Header", "SEO Title", "Metadata Description" when you are done.
+  expected_output: >
+    For each post evaluated, create a new file and prepend the name of each file with "decided_"
+    and save your selected {topic} optimizations that will improve the blog post's {topic} rankings to the "seo" folder.
   agent: reporting_analyst
+  context: [scraper_task,research_task, evaluation_task]
+
+
+writing_task:
+  description: >
+    Review the context you got from the decision_task.
+    For every file that starts with "decided_" located in the "seo" folder you should use it to 
+    update the associated blog post that has a similar name from the scraper_task 
+    and update that blog post with the suggestions made in the decision_task.
+    The new blog posts should be updated with the suggestions made in the decision_task.
+    Examples of elements you might need to change are: the "Title", "Header", "SEO Title", "Metadata Description", etc.
+  expected_output: >
+    For each blog post analyzed in decision_task, write a new blog post based on suggestions from the decision_task 
+    and prepend the file name with "optimized_" and save those files to a new folder called "optimized_blog_posts".
+  agent: reporting_analyst
+  context: [scraper_task,research_task, evaluation_task,decision_task]
