@@ -217,9 +217,9 @@ class SeoAgentsCrew():
 		return Crew(
 			agents=self.agents, # Automatically created by the @agent decorator
 			tasks=self.tasks, # Automatically created by the @task decorator
-			process=Process.hierarchical,
-			manager_llm = LLM("gpt-4o"),
-			# process=Process.sequential,
+			# process=Process.se
+			# manager_llm = LLM("gpt-4o"),
+			process=Process.sequential,
 			verbose=True,
 			memory=True,
 			planning=True,

@@ -24,12 +24,11 @@ evaluation_task:
     Review the context you got and make sure you fully understand the blog posts content before preceding.
     Use the report "SEO_Report_2025.md" from the research_task located in "seo" folder to 
     analyze the blog posts from the scraper_task located in the "seo" folder to improve the blog post rankings.
-    Now write updates to each blog post to improve the blog post {topic} rankings.
     Examples of elements you might need to change are: headers (if there are more than one h1 header in the document for example),
     blog post header length, SEO titles, metadata description, etc.
     Offer at least 3 options for content changes such as a new title or different phrasing of a paragraph with keywords.
-    Don't simply write down the best practices found in the research, you need to create 
-    new content for titles, headers, and other {topic} to improve {topic} blog post ratings.
+    Make sure you create new content for titles, headers, and other {topic} to improve {topic} blog post ratings.
+    Review the suggestions you have created and make sure they reflect the blog post content.
   expected_output: >
     For each blog post evaluated for {topic} improvements, create a markdown file with the same name as the original blog post
     with suggestions for improving the blog post's {topic} rankings and prepend each new file with "suggestions_"
