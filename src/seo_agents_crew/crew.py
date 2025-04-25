@@ -144,6 +144,7 @@ class SeoAgentsCrew():
 				file_writer_tool, 
 				file_read_tool
 				],
+			allow_code_execution=True,
 			allow_delegation=True,
 			verbose=True
 		)
@@ -217,8 +218,6 @@ class SeoAgentsCrew():
 		return Crew(
 			agents=self.agents, # Automatically created by the @agent decorator
 			tasks=self.tasks, # Automatically created by the @task decorator
-			# process=Process.se
-			# manager_llm = LLM("gpt-4o"),
 			process=Process.sequential,
 			verbose=True,
 			memory=True,

@@ -1,3 +1,4 @@
+# TODO create a custom tool based off this code 
 import os
 import time
 import logging
@@ -24,6 +25,9 @@ logger = logging.getLogger(__name__)
 
 def human_like_delay(min_delay=1, max_delay=3):
     time.sleep(random.uniform(min_delay, max_delay))
+
+
+# TODO: Make this into a custom tool for crewai
 
 class FacebookLogin:
     def __init__(self, url: str, email: str, password: str) -> None:

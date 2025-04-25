@@ -40,7 +40,7 @@ evaluation_task:
 decision_task:
   description: >
     Review the context you got from the evaluation_task
-    and analyze the {topic} suggestions from the evaluation_task context
+    and analyze the {topic} suggestions from the evaluation_task context 
     and decide which option for "Title", "Header", etc the evaluation_task provided is the best for {topic} blog post rankings.
     For each post you should select the highest quality {topic} optimizations
     and every post should only include one "Title", "Header", "SEO Title", "Metadata Description" when you are done.
@@ -53,8 +53,9 @@ decision_task:
 
 writing_task:
   description: >
-    Review the context you got from the decision_task.
-    For every file that starts with "decided_" located in the "seo" folder you should use it to 
+    Review the context you got and read through only the files in the "seo" directory
+    that starts with "decided_".
+    For every file that was created by the decison_task you should use it to 
     update the associated blog post that has a similar name from the scraper_task 
     and update that blog post with the suggestions made in the decision_task.
     The new blog posts should be updated with the suggestions made in the decision_task.
@@ -63,4 +64,4 @@ writing_task:
     For each blog post analyzed in decision_task, write a new blog post based on suggestions from the decision_task 
     and prepend the file name with "optimized_" and save those files to a new folder called "optimized_blog_posts".
   agent: reporting_analyst
-  context: [scraper_task,research_task, evaluation_task,decision_task]
+  context: [scraper_task,research_task, evaluation_task, decision_task]
